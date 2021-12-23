@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"runtime"
 
 	"github.com/minjaelee0727/gocoin/explorer"
 	"github.com/minjaelee0727/gocoin/rest"
@@ -13,8 +14,8 @@ func usage() {
 	fmt.Printf("Welcome to GoCoin\n")
 	fmt.Printf("Please use the following flags:\n\n")
 	fmt.Printf("-port:	Set the PORT of the server\n")
-	fmt.Printf("-mode:		Choose between 'html' and 'rest'\n\n")
-	os.Exit(1)
+	fmt.Printf("-mode:	 Choose between 'html' and 'rest'\n\n")
+	runtime.Goexit()
 }
 
 func Start() {
