@@ -2,6 +2,7 @@ package blockchain
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 	"time"
 
@@ -46,6 +47,7 @@ func (b *Block) mine() {
 	for {
 		b.Timestamp = int(time.Now().Unix())
 		hash := utils.Hash(b)
+		fmt.Printf("\n\n\nTarget:%s\nHash:%s\nNonce:%d\n\n\n", target, hash, b.Nonce)
 		if strings.HasPrefix(hash, target) {
 			b.Hash = hash
 			break
@@ -61,7 +63,7 @@ func createBlock(data string, prevHash string, height int) *Block {
 		Hash:       "",
 		PrevHash:   prevHash,
 		Height:     height,
-		Difficulty: Blockchain().CurrentDifficulty,
+		Difficulty: Blockchain().difficulty(),
 		Nonce:      0,
 	}
 	block.mine()
