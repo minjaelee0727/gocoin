@@ -1,3 +1,4 @@
+This readme is written by gpt-4o based on the code base.
 
 # GoCoin
 
